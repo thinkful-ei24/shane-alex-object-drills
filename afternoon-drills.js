@@ -1,9 +1,11 @@
+'use strict';
+
 const loaf = {
   flour: 300,
   water: 210,
   hydration: () => (loaf.water / loaf.flour) * 100
 };
-console.log(loaf.hydration());
+//console.log(loaf.hydration());
 
 const obj = {
   foo: 5,
@@ -18,7 +20,7 @@ function loopObj(obj) {
     console.log(key, obj[key]);
   }
 }
-loopObj(obj);
+//loopObj(obj);
 
 //Arrays in objects
 const newObj = {
@@ -32,7 +34,7 @@ const newObj = {
     'supper'
   ]
 };
-console.log(newObj.meals[3]);
+//console.log(newObj.meals[3]);
 
 const person2 = {
   name: 'Dave',
@@ -78,4 +80,30 @@ function checkOwner(newArray) {
     }
   }
 }
-checkOwner(newArray);
+//checkOwner(newArray);
+
+
+function crackingTheCode(message) {
+  const string = message.split(' ');
+  const cipher = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4,
+  };
+
+  const arr = [];
+
+  for (const word in string) {
+    const alphaOffset = string[word][0].charCodeAt() - 96;
+    const letter = cipher[string[word][0]];
+    if(alphaOffset <= 4) {
+      const curLetter = string[word][letter];
+      arr.push(curLetter);
+    } else {
+      arr.push(' ');
+    }
+  }
+  return arr.join(' ');
+}
+console.log(crackingTheCode('craft block argon meter bells brown croon droop'));

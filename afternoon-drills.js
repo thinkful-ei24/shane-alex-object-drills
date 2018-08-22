@@ -106,4 +106,32 @@ function crackingTheCode(message) {
   }
   return arr.join(' ');
 }
-console.log(crackingTheCode('craft block argon meter bells brown croon droop'));
+//console.log(crackingTheCode('craft block argon meter bells brown croon droop'));
+
+
+
+function createCharacter(name, nick, race, origin, attack, defense) {
+
+  const charObj = {
+    name: name,
+    nick: nick,
+    race: race,
+    origin: origin,
+    attack: attack,
+    defense: defense,
+
+    describe: () =>  console.log(`${name} is a ${race} from ${origin}`),
+    evaluateFight: (character) => console.log(`Your opponent takes ${attack - character.defense} damage and you receive ${character.attack - defense} damage`),
+  };
+  return charObj;
+}
+
+  const chars = [createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6), createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1), createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedai', 6, 8), createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 9, 1)];
+
+  chars.find(charObj => charObj.nick === 'bilbo').describe();
+
+  const hobbits = chars.filter(charObj => charObj.race === 'Hobbit');
+  console.log(hobbits, hobbits[0], hobbits[1]); //add loop if more than 2
+
+  const attackFive = chars.filter(charObj => charObj.attack >= 5);
+  console.log(attackFive, attackFive[0], attackFive[1]); //add loop if more than 2
